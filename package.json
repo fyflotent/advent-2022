@@ -1,0 +1,11 @@
+{
+  "name": "advent-2022",
+  "version": "1.0.0",
+  "description": "Fun times",
+  "main": "y",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Chris Rice",
+  "license": "ISC"
+}
