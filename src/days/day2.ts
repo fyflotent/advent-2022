@@ -37,7 +37,7 @@ const interpretGenerator =
       return [myPlay, theirPlay];
     });
 
-    const matchResults = matches.map(([myPlay, theirPlay], idx) => {
+    const matchResults = matches.map(([myPlay, theirPlay]) => {
       const t = getMyPoints(myPlay, theirPlay);
 
       return t;
@@ -85,7 +85,7 @@ const interpretGeneratorPart2 =
       return [myPlay, theirPlay];
     });
 
-    const matchResults = matches.map(([myPlay, theirPlay], idx) => {
+    const matchResults = matches.map(([myPlay, theirPlay]) => {
       const t = getMyPoints(myPlay, theirPlay);
 
       return t;
