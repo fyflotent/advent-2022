@@ -5,7 +5,5 @@ export const getInput = async (dayNumber: number): Promise<string> => {
   const dayFileName = path.join("input", `day${dayNumber}.txt`);
   console.log(`loading ${dayNumber} from ${dayFileName}`);
   const inputData = await readFile(dayFileName, "utf8");
-  console.log("inputData");
-  console.log(inputData.slice(0, 100));
   return inputData;
 };

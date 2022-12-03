@@ -16,7 +16,7 @@ const getElves = (input: string): Array<number[]> => {
   return elves;
 };
 
-export const day1 = async (): Promise<string> => {
+const day1Part1 = async (): Promise<string> => {
   const input = await getInput(1);
   console.log("calculating day1");
   const elves = getElves(input);
@@ -26,3 +26,22 @@ export const day1 = async (): Promise<string> => {
 
   return Math.max(...elvesCalories).toString();
 };
+
+const day1Part2 = async (): Promise<string> => {
+  const input = await getInput(1);
+  console.log("calculating day1");
+  const elves = getElves(input);
+  const elvesCalories = elves
+    .map((elf) => elf.reduce((partialSum, curr) => partialSum + curr, 0))
+    .sort((a, b) => (a > b ? -1 : 1));
+
+  return elvesCalories
+    .slice(0, 3)
+    .reduce((partialSum, curr) => partialSum + curr, 0)
+    .toString();
+};
+
+export const day1: [() => Promise<string>, () => Promise<string>] = [
+  day1Part1,
+  day1Part2,
+];
