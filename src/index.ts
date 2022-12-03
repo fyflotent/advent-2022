@@ -1,13 +1,16 @@
-import { day1 } from "./day1/day1";
+import { day1 } from "./days/day1";
+import { day2 } from "./days/day1";
+import { DayFunctions } from "./types";
 
 const { argv } = process;
-const days: Record<number, [() => Promise<string>, () => Promise<string>]> = {
-  1: day1,
+const days: Record<string, DayFunctions> = {
+  day1,
+  day2,
 };
 
 const runDay = async (day: number, part: number) => {
   console.log(day, typeof day);
-  const dayFunc = days[day][part];
+  const dayFunc = days[`day${day}`][part];
   const result = await dayFunc();
   return result;
 };

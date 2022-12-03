@@ -1,4 +1,5 @@
 import { getInput } from "../getInput";
+import { DayFunctions } from "../types";
 
 const getElves = (input: string): Array<number[]> => {
   const splitoutInput = input.split("\r\n");
@@ -41,7 +42,4 @@ const day1Part2 = async (): Promise<string> => {
     .toString();
 };
 
-export const day1: [() => Promise<string>, () => Promise<string>] = [
-  day1Part1,
-  day1Part2,
-];
+export const day1: DayFunctions = { part1: day1Part1, part2: day1Part2 };
