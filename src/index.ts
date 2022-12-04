@@ -1,17 +1,13 @@
-import { days } from "./days";
+import { trpcClient } from "./client";
 
 const { argv } = process;
 
 const runDay = async (dayNumber: number, part: 1 | 2) => {
-  const enteredDay = `day${dayNumber}`;
-  const dayFunctions = Object.entries(days).find(
-    ([day]) => day === enteredDay
-  )?.[1];
+  const result = await trpcClient.getDayResultByNumber.query({
+    dayNumber,
+    part: `part${part}`,
+  });
 
-  if (!dayFunctions) throw Error(`Day does not exist ${enteredDay}`);
-
-  const dayFunc = dayFunctions[`part${part}`];
-  const result = await dayFunc();
   return result;
 };
 
