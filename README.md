@@ -4,7 +4,22 @@ Doing the things solving the puzzles
 
 ## How to run
 
+Run these in separate terminals for now
+
 ```
-npm i
-npm run start:dev <day> <part>
+nx run middleware:start
+```
+
+```
+nx run middleware:cli
+```
+
+for dev
+
+```
+nx run middleware:dev_middleware
+```
+
+```
+nx run middleware:dev_cli
 ```
