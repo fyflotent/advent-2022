@@ -1,9 +1,9 @@
-import { readFile } from "fs/promises";
-import path from "path";
+import { readFile } from 'fs/promises';
+import path from 'path';
 
 export const getInput = async (dayNumber: number): Promise<string> => {
-  const dayFileName = path.join("input", `day${dayNumber}.txt`);
+  const dayFileName = path.join('input', `day${dayNumber}.txt`);
   console.log(`loading ${dayNumber} from ${dayFileName}`);
-  const inputData = await readFile(dayFileName, "utf8");
+  const inputData = await readFile(dayFileName, 'utf8');
   return inputData;
 };

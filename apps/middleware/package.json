@@ -2,14 +2,15 @@
   "name": "middleware",
   "version": "1.0.0",
   "description": "Fun middleware",
-  "main": "src/middleware.ts",
+  "main": "dist/client.ts",
   "scripts": {
     "dev_cli": "nodemon src/index.ts",
     "cli": "npx ts-node src/index.ts",
     "dev_middleware": "nodemon src/middleware.ts",
     "middleware": "npx ts-node src/middleware.ts",
     "start": "npm run middleware",
-    "lint": "eslint ./src --ext .ts"
+    "lint": "eslint ./src --ext .ts",
+    "build": "pwd; tsc src/client.ts --outDir dist"
   },
   "author": "Chris Rice",
   "license": "MIT"

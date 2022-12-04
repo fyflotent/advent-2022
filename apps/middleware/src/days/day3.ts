@@ -1,10 +1,10 @@
-import { getInput } from "../getInput";
-import { DayFunctions } from "./types";
+import { getInput } from '../getInput';
+import { DayFunctions } from './types';
 
 const splitString = (entry: string): [Set<string>, Set<string>] => {
   return [
-    new Set(entry.slice(0, entry.length / 2).split("")),
-    new Set(entry.slice(entry.length / 2).split("")),
+    new Set(entry.slice(0, entry.length / 2).split('')),
+    new Set(entry.slice(entry.length / 2).split('')),
   ];
 };
 
@@ -15,14 +15,14 @@ const calculateValue = (char: string) =>
 
 const part1 = async () => {
   const input = await getInput(3);
-  const stringArr = input.split("\r\n");
+  const stringArr = input.split('\r\n');
   const splitEntries: Array<[Set<string>, Set<string>]> = stringArr.map(
     (entry) => splitString(entry)
   );
 
   const charCodes = splitEntries.map(([set1, set2]) => {
     const char = [...set1.values()].find((val) => set2.has(val));
-    if (!char) throw Error("Null t");
+    if (!char) throw Error('Null t');
     return calculateValue(char);
   });
   return charCodes.reduce((a, b) => a + b, 0).toString();
@@ -33,7 +33,7 @@ const createGroups = (entries: string[]): Set<string>[][] =>
     const currentGroup = groups.pop() ?? [];
     const newGroups = [
       ...groups,
-      [...currentGroup, new Set(currentEntry.split(""))],
+      [...currentGroup, new Set(currentEntry.split(''))],
     ];
     return (idx + 1) % 3 === 0 && idx != entries.length - 1
       ? [...newGroups, []]
@@ -42,7 +42,7 @@ const createGroups = (entries: string[]): Set<string>[][] =>
 
 const part2 = async () => {
   const input = await getInput(3);
-  const stringArr = input.split("\r\n");
+  const stringArr = input.split('\r\n');
   const groups = createGroups(stringArr);
 
   const groupValues = groups.map((group) => {
@@ -53,7 +53,7 @@ const part2 = async () => {
       (value) => member2.has(value) && member3.has(value)
     );
 
-    if (!sharedChar) throw Error(`missing char`);
+    if (!sharedChar) throw Error('missing char');
     return calculateValue(sharedChar);
   });
   return groupValues.reduce((a, b) => a + b, 0).toString();

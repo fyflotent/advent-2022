@@ -1,7 +1,7 @@
-import { z } from "zod";
-import { days } from "./days";
-import * as trpcExpress from "@trpc/server/adapters/express";
-import { inferAsyncReturnType, initTRPC } from "@trpc/server";
+import { z } from 'zod';
+import { days } from './days';
+import * as trpcExpress from '@trpc/server/adapters/express';
+import { inferAsyncReturnType, initTRPC } from '@trpc/server';
 
 export const createContext = (
   _options: trpcExpress.CreateExpressContextOptions
@@ -18,8 +18,8 @@ export const appRouter = router({
   getDayResult: procedure
     .input(
       z.object({
-        day: z.enum(["day1", ...typedObjectKeys(days)]),
-        part: z.enum(["part1", "part2"]),
+        day: z.enum(['day1', ...typedObjectKeys(days)]),
+        part: z.enum(['part1', 'part2']),
       })
     )
     .query((req) => {
@@ -29,7 +29,7 @@ export const appRouter = router({
     }),
   getDayResultByNumber: procedure
     .input(
-      z.object({ dayNumber: z.number(), part: z.enum(["part1", "part2"]) })
+      z.object({ dayNumber: z.number(), part: z.enum(['part1', 'part2']) })
     )
     .query((req) => {
       const { dayNumber, part } = req.input;
