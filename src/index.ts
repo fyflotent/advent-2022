@@ -1,20 +1,13 @@
-import { day1 } from "./days/day1";
-import { day2 } from "./days/day2";
-import { day3 } from "./days/day3";
-import { day4 } from "./days/day4";
-import { DayFunctions } from "./types";
+import { trpcClient } from "./client";
 
 const { argv } = process;
-const days: Record<string, DayFunctions> = {
-  day1,
-  day2,
-  day3,
-  day4,
-};
 
-const runDay = async (day: number, part: 1 | 2) => {
-  const dayFunc = days[`day${day}`][`part${part}`];
-  const result = await dayFunc();
+const runDay = async (dayNumber: number, part: 1 | 2) => {
+  const result = await trpcClient.getDayResultByNumber.query({
+    dayNumber,
+    part: `part${part}`,
+  });
+
   return result;
 };
 
