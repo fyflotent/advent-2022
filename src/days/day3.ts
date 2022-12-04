@@ -1,5 +1,5 @@
 import { getInput } from "../getInput";
-import { DayFunctions } from "../types";
+import { DayFunctions } from "./types";
 
 const splitString = (entry: string): [Set<string>, Set<string>] => {
   return [

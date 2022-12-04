@@ -1,5 +1,5 @@
 import { getInput } from "../getInput";
-import { DayFunctions } from "../types";
+import { DayFunctions } from "./types";
 
 const getElves = (input: string): Array<number[]> => {
   const splitoutInput = input.split("\r\n");

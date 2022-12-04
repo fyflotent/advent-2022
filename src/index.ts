@@ -1,19 +1,16 @@
-import { day1 } from "./days/day1";
-import { day2 } from "./days/day2";
-import { day3 } from "./days/day3";
-import { day4 } from "./days/day4";
-import { DayFunctions } from "./types";
+import { days } from "./days";
 
 const { argv } = process;
-const days: Record<string, DayFunctions> = {
-  day1,
-  day2,
-  day3,
-  day4,
-};
 
-const runDay = async (day: number, part: 1 | 2) => {
-  const dayFunc = days[`day${day}`][`part${part}`];
+const runDay = async (dayNumber: number, part: 1 | 2) => {
+  const enteredDay = `day${dayNumber}`;
+  const dayFunctions = Object.entries(days).find(
+    ([day]) => day === enteredDay
+  )?.[1];
+
+  if (!dayFunctions) throw Error(`Day does not exist ${enteredDay}`);
+
+  const dayFunc = dayFunctions[`part${part}`];
   const result = await dayFunc();
   return result;
 };
