@@ -2,7 +2,7 @@
   "name": "middleware",
   "version": "1.0.0",
   "description": "Fun middleware",
-  "main": "middleware.ts",
+  "main": "src/middleware.ts",
   "scripts": {
     "dev_cli": "nodemon src/index.ts",
     "cli": "npx ts-node src/index.ts",
