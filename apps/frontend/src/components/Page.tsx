@@ -1,4 +1,4 @@
-import { Box, MenuItem, Paper, Select, styled, TextField, Typography } from '@mui/material'
+import { Box, Button, MenuItem, Paper, Select, styled, TextField, Typography } from '@mui/material'
 import type { inferProcedureInput } from '@trpc/server'
 import type { AppRouter } from 'advent-middleware/router'
 import { useState } from 'react'
@@ -26,6 +26,7 @@ export const Page = () => {
           onChange={(change) => {
             setCurrDay(change.target.value as GetDayInput['day'])
           }}
+          title='Day'
           value={currDay}
         >
           {dayList.data?.map((day) => (
@@ -43,16 +44,17 @@ export const Page = () => {
             <MenuItem key={day} value={day}>{day.toUpperCase()}</MenuItem>
           ))}
         </StyledSelect>
-        <TextField onChange={(change) => {
+        <TextField multiline rows={2} maxRows={20} sx={{ margin: 1 }} onChange={(change) => {
           setCurrInput(change.target.value)
-        }} value={currInput} />
+        }} value={currInput ?? ''} />
+        <Button sx={{ margin: 1 }} variant='contained' onClick={() => { setCurrInput(undefined) }}> Clear Input </Button>
       </Paper>
       <Paper sx={{ flex: '3 3 auto', padding: 1, margin: 1 }}>
         <Typography sx={{ margin: 1 }} >
           Result:
         </Typography>
         <Typography sx={{ margin: 1, background: '' }} >
-          {dayResult || 'loading'}
+          {dayResult ?? 'loading'}
         </Typography>
       </Paper>
     </Box>

@@ -1,4 +1,5 @@
 import { getInput } from '../getInput';
+import { splitLines } from './textUtils';
 import { DayFunctions } from './types';
 
 const getPairs = (inputLines: string[]) =>
@@ -25,9 +26,9 @@ const getPairs = (inputLines: string[]) =>
     return allNumbers;
   });
 
-const part1 = async () => {
-  const input = await getInput(4);
-  const splitInput = input.split('\r\n');
+const part1 = async (optionalInput?: string) => {
+  const input = optionalInput ?? (await getInput(4));
+  const splitInput = splitLines(input);
   const pairs = getPairs(splitInput);
 
   return pairs
@@ -43,9 +44,9 @@ const part1 = async () => {
 const numberInRange = (x: number, rangeLeft: number, rangeRight: number) =>
   x >= rangeLeft && x <= rangeRight;
 
-const part2 = async () => {
-  const input = await getInput(4);
-  const splitInput = input.split('\r\n');
+const part2 = async (optionalInput?: string) => {
+  const input = optionalInput ?? (await getInput(4));
+  const splitInput = splitLines(input);
   const pairs = getPairs(splitInput);
 
   return pairs

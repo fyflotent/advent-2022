@@ -1,13 +1,15 @@
 import { getInput } from '../getInput';
+import { splitLines } from './textUtils';
 import { DayFunctions } from './types';
 
 const part1 = async (optionalInput?: string) => {
-  const input = optionalInput ?? (await getInput(5));
+  const input = splitLines(optionalInput ?? (await getInput(5)));
+
   return '';
 };
 
 const part2 = async (optionalInput?: string) => {
-  const input = optionalInput ?? (await getInput(5));
+  const input = splitLines(optionalInput ?? (await getInput(5)));
   return '';
 };
 
