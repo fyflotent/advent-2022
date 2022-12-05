@@ -1,7 +1,13 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "rootDir": "./src"
+    "rootDir": "./src",
+    "esModuleInterop": true,
+    "declaration": true,
+    "outDir": "dist"
   },
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }

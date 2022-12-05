@@ -14,5 +14,17 @@
         "accessToken": "YWQ0YWQ1ZTUtOTJkNS00NWVhLWFlYTYtNTgyNTkzZDM5MGZmfHJlYWQtd3JpdGU="
       }
     }
+  },
+  "workspaceLayout": {
+    "appsDir": "apps",
+    "libsDir": "apps"
+  },
+  "targetDefaults": {
+    "build": {
+      "dependsOn": ["^build$"]
+    },
+    "start": {
+      "dependsOn": ["^build$"]
+    }
   }
 }
