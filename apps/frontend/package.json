@@ -1,8 +1,9 @@
 {
-  "name": "frontend",
+  "name": "advent-frontend",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+  },
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",

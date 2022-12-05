@@ -25,7 +25,7 @@ export const appRouter = router({
     .query((req) => {
       const { day, part } = req.input;
 
-      return days[day][part];
+      return days[day][part]();
     }),
   getDayResultByNumber: procedure
     .input(
@@ -39,6 +39,9 @@ export const appRouter = router({
       const dayResult = dayKey && days[dayKey][part]();
       return dayResult;
     }),
+  getDays: procedure.query(() => {
+    return typedObjectKeys(days);
+  }),
 });
 
 export type AppRouter = typeof appRouter;

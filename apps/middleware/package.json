@@ -1,8 +1,8 @@
 {
-  "name": "middleware",
+  "name": "advent-middleware",
   "version": "1.0.0",
   "description": "Fun middleware",
-  "main": "dist/client.ts",
+  "main": "dist/index.ts",
   "scripts": {
     "dev_cli": "nodemon src/index.ts",
     "cli": "npx ts-node src/index.ts",
@@ -10,7 +10,7 @@
     "middleware": "npx ts-node src/middleware.ts",
     "start": "npm run middleware",
     "lint": "eslint ./src --ext .ts",
-    "build": "pwd; tsc src/client.ts --outDir dist"
+    "build": "tsc"
   },
   "author": "Chris Rice",
   "license": "MIT"
