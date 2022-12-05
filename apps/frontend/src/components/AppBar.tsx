@@ -1,9 +1,8 @@
 import Toolbar from '@mui/material/Toolbar';
 import MuiAppBar from '@mui/material/AppBar';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import { ReactNode } from 'react';
 import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 
 interface AppBarProps {
   children: ReactNode
@@ -14,18 +13,12 @@ export const AppBar = ({ children }: AppBarProps) => {
     <Box sx={{ display: 'flex' }}>
       <MuiAppBar component='nav'>
         <Toolbar>
-          <IconButton
-            size='large'
-            edge='start'
-            color='inherit'
-            aria-label='open drawer'
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
+          <Typography>
+            Advent 2022
+          </Typography>
         </Toolbar>
       </MuiAppBar>
-      <Box component='main'>
+      <Box component='main' sx={{ width: '100%', height: '100%' }}>
         <Toolbar />
         {children}
       </Box>
