@@ -14,7 +14,7 @@
     "skipLibCheck": true,
     "paths": {
       "advent-middleware/router": [
-        "./apps/middleware/dist/router"
+        "./apps/middleware/src/router"
       ]
     }
   }

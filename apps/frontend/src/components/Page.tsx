@@ -17,7 +17,7 @@ export const Page = () => {
   const [currDay, setCurrDay] = useState<GetDayInput['day']>('day1')
   const [currPart, setCurrPart] = useState<GetDayInput['part']>('part1')
   const [currInput, setCurrInput] = useState<string | undefined>()
-  const { data: dayResult } = trpc.getDayResult.useQuery({ day: currDay, part: currPart }, { refetchInterval: 1000, })
+  const { data: dayResult } = trpc.getDayResult.useQuery({ day: currDay, part: currPart, input: currInput }, { refetchInterval: 1000, })
   return (
     <Box sx={{ width: '100%', height: '100%', display: 'flex' }}>
       <Paper sx={{ flex: '1 1 auto', display: 'flex', flexDirection: 'column', padding: 1, margin: 1 }}>
