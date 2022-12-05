@@ -17,7 +17,7 @@ export const Page = () => {
   const [currDay, setCurrDay] = useState<GetDayInput['day']>('day1')
   const [currPart, setCurrPart] = useState<GetDayInput['part']>('part1')
   const [currInput, setCurrInput] = useState<string | undefined>()
-  const { data: dayResult } = trpc.getDayResult.useQuery({ day: currDay, part: currPart, input: currInput }, { refetchInterval: 1000, })
+  const { data: dayResult, error } = trpc.getDayResult.useQuery({ day: currDay, part: currPart, input: currInput })
   return (
     <Box sx={{ width: '100%', height: '100%', display: 'flex' }}>
       <Paper sx={{ flex: '1 1 auto', display: 'flex', flexDirection: 'column', padding: 1, margin: 1 }}>
@@ -53,9 +53,12 @@ export const Page = () => {
         <Typography sx={{ margin: 1 }} >
           Result:
         </Typography>
-        <Typography sx={{ margin: 1, background: '' }} >
+        <Typography sx={{ margin: 1, background: '', whiteSpace: 'pre-line' }} >
           {dayResult ?? 'loading'}
         </Typography>
+        {error && <Typography sx={{ color: 'red' }} >
+          {error.message}
+        </Typography>}
       </Paper>
     </Box>
   )
