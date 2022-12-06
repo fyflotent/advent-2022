@@ -15,4 +15,4 @@ const part2 = async (optionalInput?: string) => {
   return 'output'
 };
 
-export const day5: DayFunctions = { part1, part2 };
+export const day<%= dayNumber %>: DayFunctions = { part1, part2 };
