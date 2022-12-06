@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "name": "day-plugin",
+  "version": "0.0.1",
+  "generators": {
+    "day-plugin": {
+      "factory": "./src/generators/day-plugin/generator",
+      "schema": "./src/generators/day-plugin/schema.json",
+      "description": "day-plugin generator"
+    }
+  }
+}

@@ -13,8 +13,14 @@
   ],
   "rules": {
     "no-unused-vars": "off",
-    "quotes": ["warn", "single"],
-    "jsx-quotes": ["warn", "prefer-single"],
+    "quotes": [
+      "warn",
+      "single"
+    ],
+    "jsx-quotes": [
+      "warn",
+      "prefer-single"
+    ],
     "@typescript-eslint/no-unused-vars": [
       "warn",
       {
@@ -23,5 +29,18 @@
         "caughtErrorsIgnorePattern": "^_"
       }
     ]
-  }
+  },
+  "overrides": [
+    {
+      "files": [
+        "*.json"
+      ],
+      "rules": {
+        "quotes": [
+          "warn",
+          "double"
+        ],
+      }
+    },
+  ]
 }

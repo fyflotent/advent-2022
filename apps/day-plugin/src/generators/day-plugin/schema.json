@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "DayPlugin",
+  "title": "",
+  "type": "object",
+  "properties": {
+    "properties": {"dayNumber": {
+      "name":"dayNumber",
+      "type": "number",
+        "description": "Number of the day to add",
+        "$default": {
+          "$source": "argv",
+          "index": 0
+        }
+    }}
+  },
+  "required": ["dayNumber"]
+}
