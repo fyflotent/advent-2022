@@ -1,9 +1,9 @@
-import { AppBar } from './components/AppBar';
+import { CssBaseline } from '@mui/material';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { httpBatchLink } from '@trpc/client';
-import { Page } from './components/Page';
-import { trpc, TrpcProvider } from './utils/trpc'
 import { useState } from 'react';
-import { QueryClient, QueryClientProvider, } from '@tanstack/react-query';
+import { Page } from './components/Page';
+import { trpc, TrpcProvider } from './utils/trpc';
 
 const App = () => {
   const [queryClient] = useState(() => new QueryClient());
@@ -14,18 +14,17 @@ const App = () => {
           url: 'http://localhost:4000/trpc',
         }),
       ],
-    }),
+    })
   );
 
   return (
     <TrpcProvider client={trpcClient} queryClient={queryClient}>
       <QueryClientProvider client={queryClient}>
-        <AppBar>
-          <Page />
-        </AppBar>
+        <CssBaseline />
+        <Page />
       </QueryClientProvider>
-    </TrpcProvider >
+    </TrpcProvider>
   );
-}
+};
 
 export default App;
