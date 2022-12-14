@@ -45,7 +45,7 @@ export const Page = () => {
           <FormControl>
             <InputLabel>Day</InputLabel>
             <Select
-              label="Day"
+              label='Day'
               onChange={(change) => {
                 setCurrDay(change.target.value as GetDayInput['day']);
               }}
@@ -62,7 +62,7 @@ export const Page = () => {
           <FormControl>
             <InputLabel>Part</InputLabel>
             <Select
-              label="Part"
+              label='Part'
               onChange={(change) => {
                 setCurrPart(change.target.value as GetDayInput['part']);
               }}
@@ -86,8 +86,8 @@ export const Page = () => {
             value={currInput ?? ''}
           />
           <Button
-            variant="contained"
-            color="error"
+            variant='contained'
+            color='error'
             onClick={() => {
               setCurrInput(undefined);
             }}
@@ -105,13 +105,13 @@ export const Page = () => {
             gap: 2,
           }}
         >
-          <Typography variant="h6">Result</Typography>
-          <Paper variant="outlined" sx={{ flex: '1 1 auto', padding: 1 }}>
-            <Typography component="pre" sx={{ color: 'text.secondary' }}>
+          <Typography variant='h6'>Result</Typography>
+          <Paper variant='outlined' sx={{ flex: '1 1 auto', padding: 1 }}>
+            <Typography component='pre' sx={{ color: 'text.secondary' }}>
               {dayResult ?? 'loading...'}
             </Typography>
             {error && (
-              <Typography component="pre" sx={{ color: 'error.main' }}>
+              <Typography component='pre' sx={{ color: 'error.main' }}>
                 {error.message}
               </Typography>
             )}
