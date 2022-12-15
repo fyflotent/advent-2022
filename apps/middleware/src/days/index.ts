@@ -1,5 +1,6 @@
 import { day1 } from './day1';
 import { day10 } from './day10';
+import { day11 } from './day11';
 import { day2 } from './day2';
 import { day3 } from './day3';
 import { day4 } from './day4';
@@ -20,4 +21,5 @@ export const days = {
   day8,
   day9,
   day10,
+  day11,
 };

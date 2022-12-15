@@ -107,9 +107,9 @@ export const Page = () => {
         >
           <Typography variant='h6'>Result</Typography>
           <Paper variant='outlined' sx={{ flex: '1 1 auto', padding: 1 }}>
-            <Typography component='pre' sx={{ color: 'text.secondary' }}>
+            <Box component='pre' sx={{ color: 'text.secondary' }}>
               {dayResult ?? 'loading...'}
-            </Typography>
+            </Box>
             {error && (
               <Typography component='pre' sx={{ color: 'error.main' }}>
                 {error.message}

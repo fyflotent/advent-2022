@@ -1,5 +1,5 @@
 import { getInput } from '../getInput';
-import { splitCharacters, splitLines } from './textUtils';
+import { splitLines } from './textUtils';
 import { DayFunctions } from './types';
 
 interface Position {
