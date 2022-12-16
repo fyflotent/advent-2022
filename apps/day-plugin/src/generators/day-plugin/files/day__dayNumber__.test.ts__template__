@@ -1,0 +1,15 @@
+import { day<%= dayNumber %> } from './day<%= dayNumber %>'
+
+const {part1, part2} = day<%= dayNumber %>
+
+describe('part1', async () => {
+ it.skip('should', () => {
+  expect(await part1()).toBe('output')
+ })
+})
+
+describe('part2', async () => {
+  it.skip('should', () => {
+  expect(await part2()).toBe('output')
+ })
+})

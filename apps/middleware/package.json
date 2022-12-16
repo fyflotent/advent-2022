@@ -8,6 +8,7 @@
     "cli": "npx ts-node src/index.ts",
     "dev_middleware": "nodemon src/middleware.ts",
     "middleware": "npx ts-node src/middleware.ts",
+    "test": "jest --watch",
     "start": "npm run dev_middleware",
     "lint": "eslint ./src --ext .ts",
     "build": "tsc"
