@@ -2,14 +2,14 @@ import { day<%= dayNumber %> } from './day<%= dayNumber %>'
 
 const {part1, part2} = day<%= dayNumber %>
 
-describe('part1', async () => {
- it.skip('should', () => {
+describe('part1',  () => {
+ it.skip('should', async() => {
   expect(await part1()).toBe('output')
  })
 })
 
-describe('part2', async () => {
-  it.skip('should', () => {
+describe('part2', () => {
+  it.skip('should', async () => {
   expect(await part2()).toBe('output')
  })
 })
