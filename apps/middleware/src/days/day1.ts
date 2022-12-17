@@ -17,8 +17,8 @@ const getElves = (input: string): Array<number[]> => {
   return elves;
 };
 
-const day1Part1 = async (): Promise<string> => {
-  const input = await getInput(1);
+const day1Part1 = async (optionalInput?: string): Promise<string> => {
+  const input = optionalInput ?? (await getInput(1));
   console.log('calculating day1');
   const elves = getElves(input);
   const elvesCalories = elves.map((elf) => {
@@ -28,8 +28,8 @@ const day1Part1 = async (): Promise<string> => {
   return Math.max(...elvesCalories).toString();
 };
 
-const day1Part2 = async (): Promise<string> => {
-  const input = await getInput(1);
+const day1Part2 = async (optionalInput?: string): Promise<string> => {
+  const input = optionalInput ?? (await getInput(1));
   console.log('calculating day1');
   const elves = getElves(input);
   const elvesCalories = elves

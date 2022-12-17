@@ -13,8 +13,8 @@ const calculateValue = (char: string) =>
     ? char.charCodeAt(0) - 64 + 26
     : char.charCodeAt(0) - 96;
 
-const part1 = async () => {
-  const input = await getInput(3);
+const part1 = async (optionalInput?: string) => {
+  const input = optionalInput ?? (await getInput(3));
   const stringArr = input.split('\r\n');
   const splitEntries: Array<[Set<string>, Set<string>]> = stringArr.map(
     (entry) => splitString(entry)
@@ -40,8 +40,8 @@ const createGroups = (entries: string[]): Set<string>[][] =>
       : newGroups;
   }, new Array<Set<string>[]>());
 
-const part2 = async () => {
-  const input = await getInput(3);
+const part2 = async (optionalInput?: string) => {
+  const input = optionalInput ?? (await getInput(3));
   const stringArr = input.split('\r\n');
   const groups = createGroups(stringArr);
 

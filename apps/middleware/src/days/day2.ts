@@ -45,12 +45,12 @@ const interpretGenerator =
 
     return matchResults;
   };
-const part1 = async () => {
+const part1 = async (optionalInput?: string) => {
+  const input = optionalInput ?? (await getInput(2));
   const interpreter = interpretGenerator(
     { X: 'rock', Y: 'paper', Z: 'scissors' },
     { A: 'rock', B: 'paper', C: 'scissors' }
   );
-  const input = await getInput(2);
   return interpreter(input)
     .reduce((a, b) => a + b, 0)
     .toString();
@@ -94,13 +94,13 @@ const interpretGeneratorPart2 =
     return matchResults;
   };
 
-const part2 = async () => {
+const part2 = async (optionalInput?: string) => {
+  const input = optionalInput ?? (await getInput(2));
   const interpreter = interpretGeneratorPart2({
     A: 'rock',
     B: 'paper',
     C: 'scissors',
   });
-  const input = await getInput(2);
   return interpreter(input)
     .reduce((a, b) => a + b, 0)
     .toString();
