@@ -1,11 +1,6 @@
 import { getInput } from '../getInput';
 import { splitCharacters, splitLines } from './textUtils';
-import { DayFunctions } from './types';
-
-interface Position {
-  x: number;
-  y: number;
-}
+import { DayFunctions, Position } from './types';
 
 export enum PositionType {
   Start,

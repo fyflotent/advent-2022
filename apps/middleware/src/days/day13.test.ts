@@ -168,7 +168,6 @@ describe('pairInOrder', () => {
     );
     const failCases = [2, 4, 6, 7].map((i) => testInput[i]);
     it.each(failCases)('should be false for pair %s', (_, [array1, array2]) => {
-      console.log(array1, array2);
       expect(pairInOrder(array1, array2)).toBe(false);
     });
   });

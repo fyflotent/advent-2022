@@ -1,11 +1,6 @@
 import { getInput } from '../getInput';
 import { splitLines } from './textUtils';
-import { DayFunctions } from './types';
-
-interface Position {
-  x: number;
-  y: number;
-}
+import { DayFunctions, Position } from './types';
 
 class PositionSetTracker {
   positionSet = new Set<string>();
