@@ -1,4 +1,5 @@
 import { getInput } from '../getInput';
+import { getRange } from './arrayUtils';
 import { sum } from './mathUtils';
 import { splitLines } from './textUtils';
 import { DayFunctions, Position } from './types';
@@ -15,12 +16,6 @@ export const getCoordinates = (inputLine: string): Position[] => {
     const f = { x: parseInt(coordArr[0]), y: parseInt(coordArr[1]) };
     return f;
   });
-};
-
-const getRange = (num1: number, num2: number) => {
-  const start = num1 > num2 ? num2 : num1;
-  const end = num1 < num2 ? num2 : num1;
-  return [...new Array(end - start + 1).keys()].map((index) => index + start);
 };
 
 const getPositionsLine = (p1: Position, p2: Position): Position[] => {
