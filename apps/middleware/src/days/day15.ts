@@ -1,8 +1,8 @@
 import { getInput } from '../getInput';
 import { getRange } from './arrayUtils';
-import { sum } from './mathUtils';
+import { dehashPosition, hashPosition } from './position';
 import { splitLines } from './textUtils';
-import { DayFunctions, Position } from './types';
+import { Position } from './types';
 
 interface SensorData {
   sensor: Position;
@@ -10,7 +10,6 @@ interface SensorData {
   distance: number;
 }
 
-const hashPosition = (position: Position) => `${position.x},${position.y}`;
 const getManhattanDistance = (p1: Position, p2: Position) =>
   Math.abs(p1.x - p2.x) + Math.abs(p1.y - p2.y);
 
@@ -67,12 +66,58 @@ const part1 = async (optionalInput?: string) => {
   return positions.size.toString();
 };
 
-const part2 = async (optionalInput?: string) => {
-  const input = splitLines(optionalInput ?? (await getInput(15)));
-  const sensorData = input.map(readLine);
-  // Get the perimeter dumby
-
-  return '';
+export const getOuterRadiusPositions = (
+  position: Position,
+  innerRadius: number,
+  maxRange: number
+): Array<string> => {
+  const radius = innerRadius + 1;
+  const { x, y } = position;
+  return getRange(0, innerRadius).flatMap((n) => {
+    const positions = [
+      { x: x - radius + n, y: y - n },
+      { x: x - n, y: y + radius - n },
+      { x: x + radius - n, y: y + n },
+      { x: x + n, y: y - radius + n },
+    ]
+      .filter(({ x, y }) => x >= 0 && x <= maxRange && y >= 0 && y <= maxRange)
+      .map(hashPosition);
+    return positions;
+  });
 };
 
-export const day15: DayFunctions = { part1, part2 };
+const part2 = async (optionalInput?: string, maxRange = 4000000) => {
+  const input = splitLines(optionalInput ?? (await getInput(15)));
+  const sensorData = input.map(readLine);
+  const beaconSet = new Set(
+    sensorData.map((data) => hashPosition(data.beacon))
+  );
+
+  let pos: Position | undefined = undefined;
+  for (const data of sensorData) {
+    const newPositions = getOuterRadiusPositions(
+      data.sensor,
+      data.distance,
+      maxRange
+    );
+
+    const foundPosition = newPositions.find((hashedPosition) => {
+      const position = dehashPosition(hashedPosition);
+
+      const result1 = !beaconSet.has(hashedPosition);
+      const result2 = sensorData.every(
+        (sd) => getManhattanDistance(sd.sensor, position) > sd.distance
+      );
+
+      return result1 && result2;
+    });
+    if (foundPosition) {
+      pos = dehashPosition(foundPosition);
+      break;
+    }
+  }
+
+  return pos ? `${4000000 * pos.x + pos.y}` : 'failed';
+};
+
+export const day15 = { part1, part2 };
